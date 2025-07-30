@@ -1,0 +1,185 @@
+[gd_scene load_steps=15 format=3 uid="uid://c1v5ky4lu053d"]
+
+[ext_resource type="Texture2D" uid="uid://c36ryxx8plilk" path="res://checker.jpg" id="1_lyd3d"]
+[ext_resource type="Script" path="res://office_door.gd" id="2_o8e1f"]
+[ext_resource type="Texture2D" uid="uid://c1xif4bkvyf43" path="res://feddy.png" id="2_umi3o"]
+[ext_resource type="Script" path="res://door_red_light.gd" id="4_4hkso"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y13xr"]
+albedo_texture = ExtResource("1_lyd3d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8t12"]
+albedo_color = Color(0.466667, 0.290196, 0.392157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rdj4o"]
+albedo_color = Color(0.590524, 0.38361, 0.502331, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lrr61"]
+albedo_color = Color(0.592157, 0.384314, 0.501961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5xkr"]
+albedo_color = Color(0.592157, 0.384314, 0.501961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rvhtc"]
+albedo_color = Color(0.592157, 0.384314, 0.501961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_blqum"]
+albedo_texture = ExtResource("2_umi3o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_14p63"]
+albedo_color = Color(0.592157, 0.384314, 0.501961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbbx6"]
+albedo_color = Color(0.515225, 0.239699, 0.0728231, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebaro"]
+albedo_color = Color(0.0469445, 4.65665e-05, 0.173828, 1)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120697, -2.38419e-07, -0.0214243)
+
+[node name="Floor" type="CSGBox3D" parent="."]
+transform = Transform3D(20.005, 0, 0, 0, 0.5, 0, 0, 0, 20.005, 0.775382, 0, 0)
+material_override = SubResource("StandardMaterial3D_y13xr")
+size = Vector3(1.00195, 1, 1)
+
+[node name="CamWall" type="CSGBox3D" parent="."]
+transform = Transform3D(6.505, 0, 0, 0, 5, 0, 0, 0, 0.5, -5.92773, 2.79565, 1.8381)
+material_override = SubResource("StandardMaterial3D_y8t12")
+size = Vector3(1.02252, 1, 1)
+
+[node name="Window" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 8, -2.84898, 1.50944, 3.949)
+material_override = SubResource("StandardMaterial3D_rdj4o")
+size = Vector3(1, 0.5, 0.5)
+
+[node name="WindowTop" type="CSGBox3D" parent="Window"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009799, 0.707284, -2.12789e-05)
+material_override = SubResource("StandardMaterial3D_lrr61")
+size = Vector3(1, 0.1, 0.5)
+
+[node name="WindowLeft" type="CSGBox3D" parent="Window"]
+transform = Transform3D(1, 0, 0, 0, 0.421, 0, 0, 0, 0.125, 0.0009799, 0.501276, -0.17538)
+material_override = SubResource("StandardMaterial3D_c5xkr")
+size = Vector3(1, 1.20605, 1)
+
+[node name="WindowRight" type="CSGBox3D" parent="Window"]
+transform = Transform3D(1, 0, 0, 0, 0.421, 0, 0, 0, 0.125, 0.0009799, 0.50148, 0.187929)
+material_override = SubResource("StandardMaterial3D_rvhtc")
+size = Vector3(1, 1.20703, 1)
+
+[node name="Freddy" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93961, 3.74162, 2.90996)
+material_override = SubResource("StandardMaterial3D_blqum")
+
+[node name="DoorFrame" type="CSGBox3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -2.849, 2.57546, 6.333)
+material_override = SubResource("StandardMaterial3D_14p63")
+size = Vector3(1, 5.42688, 1)
+
+[node name="FrameRight" type="CSGBox3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5762)
+size = Vector3(1, 5.42688, 1)
+
+[node name="FrameTop" type="CSGBox3D" parent="DoorFrame"]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 8, 0.00101995, 2.4704, 1.58654)
+material_override = SubResource("StandardMaterial3D_lrr61")
+size = Vector3(1, 0.1, 0.5)
+
+[node name="PlayerView" type="Camera3D" parent="."]
+transform = Transform3D(0.430511, 0, -0.902585, 0, 1, 0, 0.902585, 0, 0.430511, -8.03056, 3.2293, 8.51778)
+
+[node name="OfficeDoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.824, 2.643, 8.125)
+transparency = 1.0
+size = Vector3(0.266479, 4.75, 2.61865)
+script = ExtResource("2_o8e1f")
+
+[node name="door button" type="Button" parent="."]
+offset_left = 894.0
+offset_top = 125.0
+offset_right = 994.0
+offset_bottom = 206.0
+text = "door.
+ open/close"
+
+[node name="SupplyCloset" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9829, 2.44971, -2.67011)
+size = Vector3(6.505, 5.89941, 0.5)
+
+[node name="Sup_Backwall" type="CSGBox3D" parent="SupplyCloset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05002, 0.342828, 2.19931)
+size = Vector3(0.5, 5.23785, 4.32855)
+
+[node name="Sup_leftframe" type="CSGBox3D" parent="SupplyCloset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1184, 0.342483, 3.86838)
+size = Vector3(0.5, 5.1987, 0.796143)
+
+[node name="Sup_rightframe" type="CSGBox3D" parent="SupplyCloset"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1184, 0.346069, 0.617606)
+size = Vector3(0.5, 5.20587, 0.746216)
+
+[node name="Sup_frametop" type="CSGBox3D" parent="SupplyCloset"]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 8, 3.13441, 2.64236, 2.21837)
+material_override = SubResource("StandardMaterial3D_lrr61")
+size = Vector3(1, 0.118481, 0.5)
+
+[node name="Parts&Service" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9829, 2.44971, -9.44678)
+size = Vector3(6.505, 5.89941, 0.5)
+
+[node name="Par_Backwall" type="CSGBox3D" parent="Parts&Service"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05002, 0.342828, 3.44328)
+size = Vector3(0.5, 5.23785, 6.8165)
+
+[node name="Par_leftframe" type="CSGBox3D" parent="Parts&Service"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1184, 0.342483, 5.26609)
+size = Vector3(0.5, 5.1987, 3.59155)
+
+[node name="Par_rightframe" type="CSGBox3D" parent="Parts&Service"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1184, 0.346069, 0.617606)
+size = Vector3(0.5, 5.20587, 0.746216)
+
+[node name="Par_frametop" type="CSGBox3D" parent="Parts&Service"]
+transform = Transform3D(0.5, 0, 0, 0, 5, 0, 0, 0, 8, 3.13441, 2.64236, 2.21837)
+material_override = SubResource("StandardMaterial3D_lrr61")
+size = Vector3(1, 0.118481, 0.5)
+
+[node name="Stage" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15417, 0.274933, -7.99822)
+material_override = SubResource("StandardMaterial3D_sbbx6")
+size = Vector3(7.30835, 1.54987, 4.21667)
+
+[node name="WindowGlass" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.80168, 3.78177, 3.98447)
+transparency = 0.8
+size = Vector3(0.157104, 2.06567, 1.91449)
+
+[node name="Lgihting" type="Node3D" parent="."]
+
+[node name="DoorRedLight" type="SpotLight3D" parent="Lgihting"]
+transform = Transform3D(0.803857, 0.251383, -0.539093, 0, 0.906308, 0.422618, 0.594823, -0.339725, 0.728542, -2.39806, 4.9255, 9.35249)
+visible = false
+light_color = Color(0.992157, 0, 0, 1)
+spot_range = 7.66
+spot_attenuation = -0.28
+script = ExtResource("4_4hkso")
+
+[node name="DoorLight" type="Button" parent="Lgihting"]
+offset_left = 882.0
+offset_top = 33.0
+offset_right = 1003.0
+offset_bottom = 115.0
+text = "Door light"
+
+[node name="Ceiling" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.765381, 5.30126, 0.440125)
+size = Vector3(20.019, 0.317871, 20.0277)
+
+[node name="StageWall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.73694, 2.79743, -9.44087)
+material_override = SubResource("StandardMaterial3D_ebaro")
+size = Vector3(14.1333, 5.31628, 0.5)
+
+[connection signal="pressed" from="door button" to="OfficeDoor" method="_on_button_pressed"]
+[connection signal="pressed" from="Lgihting/DoorLight" to="Lgihting/DoorRedLight" method="_on_door_light_pressed"]
