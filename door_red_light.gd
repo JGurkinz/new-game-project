@@ -15,6 +15,10 @@ var Visible = false
 
 func _on_door_light_pressed() -> void:
 	if Visible == false:
-		
+		$".".visible = true
+		Visible = true
+	elif Visible == true:
+		$".".visible = false
+		Visible = false
 	
 	pass # Replace with function body.

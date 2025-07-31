@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://c1v5ky4lu053d"]
 
 [ext_resource type="Texture2D" uid="uid://c36ryxx8plilk" path="res://checker.jpg" id="1_lyd3d"]
-[ext_resource type="Script" path="res://office_door.gd" id="2_o8e1f"]
+[ext_resource type="Script" uid="uid://bset8px7k76oy" path="res://office_door.gd" id="2_o8e1f"]
 [ext_resource type="Texture2D" uid="uid://c1xif4bkvyf43" path="res://feddy.png" id="2_umi3o"]
-[ext_resource type="Script" path="res://door_red_light.gd" id="4_4hkso"]
+[ext_resource type="Script" uid="uid://cwxjuwyjvydvc" path="res://door_red_light.gd" id="4_4hkso"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y13xr"]
 albedo_texture = ExtResource("1_lyd3d")
