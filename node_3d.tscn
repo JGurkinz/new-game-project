@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c1v5ky4lu053d"]
+[gd_scene load_steps=21 format=3 uid="uid://c1v5ky4lu053d"]
 
 [ext_resource type="Texture2D" uid="uid://c36ryxx8plilk" path="res://checker.jpg" id="1_lyd3d"]
 [ext_resource type="Script" uid="uid://bset8px7k76oy" path="res://office_door.gd" id="2_o8e1f"]
@@ -39,6 +39,17 @@ albedo_color = Color(0.0469445, 4.65665e-05, 0.173828, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_467n1"]
 albedo_texture = ExtResource("1_lyd3d")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_color = Color(0.576471, 0.498039, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i5arm"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
+albedo_color = Color(0, 1, 0, 1)
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0120697, -2.38419e-07, -0.0214243)
 
@@ -48,7 +59,7 @@ material_override = SubResource("StandardMaterial3D_y13xr")
 size = Vector3(1.00195, 1, 1)
 
 [node name="CamWall" type="CSGBox3D" parent="."]
-transform = Transform3D(6.505, 0, 0, 0, 5, 0, 0, 0, 0.5, -5.92773, 2.79565, 1.8381)
+transform = Transform3D(6.505, 0, 0, 0, 5, 0, 0, 0, 0.5, -5.92773, 2.7547, 1.8381)
 material_override = SubResource("StandardMaterial3D_y8t12")
 size = Vector3(1.02252, 1, 1)
 
@@ -73,8 +84,14 @@ material_override = SubResource("StandardMaterial3D_rvhtc")
 size = Vector3(1, 1.20703, 1)
 
 [node name="Freddy" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.93961, 3.74162, 2.90996)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.004, 3.327, 2.884)
 material_override = SubResource("StandardMaterial3D_blqum")
+size = Vector3(1.64209, 1.95618, 1.13824)
+
+[node name="Freddy2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.984, 3.327, 7.58)
+material_override = SubResource("StandardMaterial3D_blqum")
+size = Vector3(1.64209, 1.95618, 1.13824)
 
 [node name="DoorFrame" type="CSGBox3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -2.849, 2.57546, 6.333)
@@ -91,7 +108,10 @@ material_override = SubResource("StandardMaterial3D_lrr61")
 size = Vector3(1, 0.1, 0.5)
 
 [node name="PlayerView" type="Camera3D" parent="."]
-transform = Transform3D(0.430511, 0, -0.902585, 0, 1, 0, 0.902585, 0, 0.430511, -8.03056, 3.2293, 8.51778)
+transform = Transform3D(0.470612, 0, -0.88234, 0, 1, 0, 0.88234, 0, 0.470612, -6.45571, 3.2293, 8.51778)
+fov = 70.0
+near = 0.003
+far = 37.38
 script = ExtResource("3_jka67")
 
 [node name="OfficeDoor" type="CSGBox3D" parent="."]
@@ -155,12 +175,12 @@ size = Vector3(0.157104, 2.06567, 1.91449)
 [node name="Lgihting" type="Node3D" parent="."]
 
 [node name="DoorRedLight" type="SpotLight3D" parent="Lgihting"]
-transform = Transform3D(0.97437, 0.050603, -0.219186, 0, 0.97437, 0.224951, 0.224951, -0.219186, 0.949397, -2.39806, 4.9255, 9.35249)
-light_color = Color(0.992157, 0, 0, 1)
-light_energy = 4.0
-spot_range = 8.598
-spot_attenuation = 0.0
-spot_angle = 15.35
+transform = Transform3D(0.97437, 0.0769378, -0.211385, 0, 0.939693, 0.34202, 0.224951, -0.333254, 0.915608, -2.39806, 4.9255, 9.7044)
+light_color = Color(0.228596, 0.498312, 1, 1)
+light_energy = 5.0
+spot_range = 10.0
+spot_attenuation = -1.8
+spot_angle = 25.45
 script = ExtResource("4_4hkso")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lgihting"]
@@ -207,13 +227,39 @@ text = "door.
 
 [node name="DoorView" type="Button" parent="Node2D"]
 self_modulate = Color(1, 0, 0, 1)
-offset_left = 1012.0
-offset_top = 1.0
-offset_right = 1156.0
-offset_bottom = 647.0
+offset_left = 991.0
+offset_top = 50.0
+offset_right = 1143.0
+offset_bottom = 648.0
 text = "hover to look right"
+
+[node name="CamTable" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.136, 0.744, 2.60577)
+visible = false
+material_override = SubResource("StandardMaterial3D_i5arm")
+size = Vector3(4.31274, 1, 1)
+
+[node name="monitor" type="CSGBox3D" parent="CamTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102291, 1.98123, 0)
+material_override = SubResource("StandardMaterial3D_jka67")
+size = Vector3(3.63068, 2.92883, 1)
+
+[node name="SubViewport" type="SubViewport" parent="."]
+handle_input_locally = false
+
+[node name="StageCamera" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 5.16693, 4.756, -1.28642)
+
+[node name="Screen" type="Sprite3D" parent="."]
+transform = Transform3D(0.651055, 0, 0, 0, 0.543933, 0, 0, 0, 3.04097, -6.13444, 2.702, 3.13648)
+texture = SubResource("ViewportTexture_i5arm")
+
+[node name="corridor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297009, 2.66117, 3.98468)
+material_override = SubResource("StandardMaterial3D_wc5p8")
+size = Vector3(0.5, 5.48718, 12.4106)
 
 [connection signal="mouse_entered" from="Node2D/CamView" to="PlayerView" method="_on_cam_view_mouse_entered"]
 [connection signal="pressed" from="Node2D/DoorLight" to="Lgihting/DoorRedLight" method="_on_door_light_pressed"]
 [connection signal="pressed" from="Node2D/door button" to="OfficeDoor" method="_on_button_pressed"]
-[connection signal="mouse_entered" from="Node2D/DoorView" to="PlayerView" method="_on_button_mouse_entered"]
+[connection signal="mouse_entered" from="Node2D/DoorView" to="PlayerView" method="_on_door_view_mouse_entered"]
